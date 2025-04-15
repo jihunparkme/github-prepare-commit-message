@@ -52,10 +52,10 @@ feat: xxx
    projectN
    ```
 
-2. 'run-create-prepare-commit-msg.sh' 파일을 다운로드 후 실행 권한을 추가합니다.
+2. [run-create-prepare-commit-msg.sh](https://github.com/jihunparkme/github-prepare-commit-message/blob/main/script/run-create-prepare-commit-msg.sh) 파일을 다운로드 후 실행 권한을 추가합니다.
 
     ```shell
-    $ curl -L -O 
+    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/run-create-prepare-commit-msg.sh)"
     
     $ chmod +x run-create-prepare-commit-msg.sh
     ```
