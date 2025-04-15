@@ -54,7 +54,7 @@ feat: xxx
    projectN
    ```
 
-2. prepare-commit-msg 적용 
+2. `prepare-commit-msg`를 적용합니다.
 
    ```shell
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/run-create-prepare-commit-msg.sh)"
@@ -79,7 +79,7 @@ feat: xxx
 ⚠️ **레파지토리에 추가된 prepare-commit-msg 삭제할 경우**
 
 ```shell
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/delete-prepare-commit-msg.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/delete-prepare-commit-msg.sh)"
 ```
 
 
