@@ -1,10 +1,10 @@
 # Github prepare commit message
 
-Git 커밋 시, 현재 브랜치 이름에 포함된 Jira ISSUE ID를 자동으로 커밋 메시지에 추가합니다.
+Git 커밋 시, 현재 브랜치 이름에 포함된 JIRA issue ID를 자동으로 커밋 메시지에 추가합니다.
 
 ## Example
 
-👉🏼branch name containing issue ID
+👉🏼 branch name containing issue ID
 
 ```text
 Branch name:
@@ -22,7 +22,9 @@ Result:
 [ABCDEFG-12345] feat: xxx
 ```
 
-👉🏼branch name not containing issue ID
+👉🏼 branch name not containing issue ID
+- JIRA issue ID는 아래 정규식으로 추출되므로, issue ID로 오인될 수 있는 유사 패턴은 가급적 소문자 사용을 권장합니다. 
+- `'[A-Z]+-[0-9]+'`
 
 ```text
 Branch name:
@@ -52,43 +54,33 @@ feat: xxx
    projectN
    ```
 
-2. [run-create-prepare-commit-msg.sh](https://github.com/jihunparkme/github-prepare-commit-message/blob/main/script/run-create-prepare-commit-msg.sh) 파일을 다운로드 후 실행 권한을 추가합니다.
+2. prepare-commit-msg 적용 
 
-    ```shell
-    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/run-create-prepare-commit-msg.sh)"
-    
-    $ chmod +x run-create-prepare-commit-msg.sh
-    ```
+   ```shell
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/run-create-prepare-commit-msg.sh)"
+   ```
 
-3. `run-create-prepare-commit-msg.sh` 파일을 실행합니다.
-
-    ```shell
-    $ ./run-create-prepare-commit-msg.sh
-   
+   ```shell
    # clone repository
-   Cloning into 'create-prepare-commit-msg'...
-   remote: Enumerating objects: 3, done.
-   remote: Counting objects: 100% (3/3), done.
-   remote: Compressing objects: 100% (3/3), done.
-   remote: Total 3 (delta 0), reused 1 (delta 0), pack-reused 0
-   Receiving objects: 100% (3/3), done.
-   remote: Enumerating objects: 5, done.
-   remote: Counting objects: 100% (5/5), done.
-   remote: Compressing objects: 100% (4/4), done.
-   remote: Total 5 (delta 1), reused 5 (delta 1), pack-reused 0
-   Receiving objects: 100% (5/5), 1.21 KiB | 1.21 MiB/s, done.
-   Resolving deltas: 100% (1/1), done.
-   Your branch is up to date with 'origin/main'.
+   Cloning into 'github-prepare-commit-message'...
+   ...
    
-   # current repository
-   repository: /Users/project
-   
-   # copy prepare commit msg hook to target repository
+   # copy prepare-commit-msg hook to target repository
    repository: /Users/project/project1
    repository: /Users/project/project2
-   /Users/project/project3/.git/hooks 디렉토리를 찾을 수 없습니다.
    ...
    repository: /Users/project/projectN
    ```
 
-4. Jira ISSUE ID가 포함된 브랜치로 커밋을 합니다.
+3. JIRA ISSUE ID가 포함된 브랜치로 커밋을 합니다.
+
+---
+
+⚠️ **레파지토리에 추가된 prepare-commit-msg 삭제할 경우**
+
+```shell
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jihunparkme/github-prepare-commit-message/refs/heads/main/script/delete-prepare-commit-msg.sh)"
+```
+
+
+
